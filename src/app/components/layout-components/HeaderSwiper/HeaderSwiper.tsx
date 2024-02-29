@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { register } from "swiper/element/bundle";
-
+//@ts-ignore
 register();
 
 import styles from "./HeaderSwiper.module.css";
@@ -35,12 +35,14 @@ export const HeaderSwiper = () => {
         disableOnInteraction: false,
       },
     };
-
+    //@ts-ignore
     Object.assign(swiperElRef.current, params);
+    //@ts-ignore
     swiperElRef.current.initialize();
   }, []);
 
   return (
+    //@ts-ignore
     <swiper-container init="false" ref={swiperElRef}>
       <swiper-slide>
         <Image
