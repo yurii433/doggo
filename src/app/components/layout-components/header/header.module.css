@@ -1,0 +1,79 @@
+.header {
+  position: relative;
+}
+
+.desctopNavContainer {
+  background-color: transparent;
+  padding: 0 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  .nav {
+    display: flex;
+
+    .img {
+      height: 75px;
+      padding-right: 20px;
+    }
+  }
+}
+.ulHeaderFirst {
+  display: flex;
+  list-style-type: none;
+  gap: 1.5em;
+  .li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .navLink {
+      display: inline-block;
+      color: #000;
+      text-decoration: none;
+    }
+    .navLink::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 1px;
+      background: #000;
+      transition: width 0.3s;
+    }
+    .navLink:hover::after {
+      width: 100%;
+      transition: width 0.3s;
+    }
+  }
+}
+
+.ulHeaderSecond {
+  display: flex;
+  margin-top: 25px;
+  gap: 10px;
+}
+
+.btnLanguage {
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  padding: 7px 12px;
+}
+.btnLanguage:hover {
+  background-color: rgb(241, 255, 255);
+}
+
+.btnLogin {
+  background: none;
+  border: none;
+  .loginImg {
+    width: 25px;
+  }
+  .loginImg:hover {
+    fill: rgb(74, 74, 74);
+  }
+}

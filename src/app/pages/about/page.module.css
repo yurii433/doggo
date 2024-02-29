@@ -1,0 +1,60 @@
+.about {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutTop {
+  background: url("/dog-with-people-chewy-unsplash.jpg");
+  width: 100%;
+  height: 80dvh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about h2 {
+  color: white;
+  font-size: clamp(2rem, 5vw, 7rem);
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  padding: 2.5rem 1.5rem;
+  gap: 1.5rem;
+}
+
+.textContainer {
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.textContainer h4 {
+  font-size: (1.275rem + 0.3vw);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 1.5rem 5rem;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    padding: 1rem 5rem;
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+    padding: 1rem 6rem;
+  }
+}

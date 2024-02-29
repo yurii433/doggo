@@ -1,0 +1,68 @@
+.advantages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2.5rem 1.5rem;
+  gap: 1.5rem;
+}
+
+.advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 210px;
+  max-width: 415px;
+  gap: 1rem;
+  flex: 1;
+}
+
+.advantage h4 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.advantage h4 i {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.advantage hr {
+  max-width: 10%;
+  border: 2px solid black;
+  border-left: 20px solid black;
+  border-right: 20px solid black;
+}
+
+.advantage p {
+  text-align: justify;
+  text-align-last: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    padding: 1.5rem 5rem;
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+    gap: 3rem;
+  }
+}
