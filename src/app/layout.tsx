@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { poppins, arizonia } from "./utils/fonts";
+import { poppins } from "./utils/fonts";
 import "./globals.css";
+import "./globalicons.css";
 
 import Header from "./components/layout-components/header/Header";
 import Footer from "./components/layout-components/footer/Footer";
-import CustomCursor from "./components/CustomCursor";
 
 export const metadata: Metadata = {
   title: "Dogo",
@@ -21,6 +21,7 @@ export default function RootLayout({
       <body className={` ${poppins.className} `}>
         <Header />
         {children}
+
         <Footer />
       </body>
     </html>

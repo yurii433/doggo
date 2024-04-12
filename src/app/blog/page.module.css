@@ -1,0 +1,109 @@
+.blog {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  padding: 2.5rem 1.5rem;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+.container h1 {
+  font-size: 36px;
+  line-height: 42px;
+  margin-bottom: 40px;
+}
+
+.container h1 i {
+  font-size: 48px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+.filterNav {
+  display: flex;
+
+  gap: 2rem;
+}
+
+.filterNav button {
+  border: none;
+  padding: 5px 10px;
+  background-color: transparent;
+  min-width: 150px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+.blogBody {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-rows: auto;
+  gap: 2rem;
+}
+
+.blogPost {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.blogPost:hover {
+  opacity: 90%;
+}
+
+.postImg {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  display: block;
+  object-fit: cover;
+}
+
+.postHeader {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.postInfo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.vLine {
+  height: 15px;
+  border-left: 2px solid black;
+}
+
+.postInfo i {
+  font-size: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 1.5rem 5rem;
+    gap: 1.5rem;
+  }
+  .postHeader {
+    font-size: 26px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    padding: 1rem 5rem;
+    gap: 2rem;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+    padding: 1rem 6rem;
+  }
+}

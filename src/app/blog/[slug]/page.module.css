@@ -1,0 +1,62 @@
+.page {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  padding: 2.5rem 1.5rem;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.container img {
+  object-fit: cover;
+  max-height: 530px;
+  max-width: 1130px;
+}
+
+.postInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.postInfo a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 1px;
+  background: #000;
+}
+.postInfo a:hover::after {
+  width: 100%;
+  transition: width 0.3s;
+}
+
+.postInfo i {
+  display: inline;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 1.5rem 5rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    padding: 1rem 5rem;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+    padding: 1rem 6rem;
+  }
+}

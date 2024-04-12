@@ -2,69 +2,58 @@
 
 import styles from "./header.module.css";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+import navRoots from "./navRoots";
+import { handleThrottle } from "@/app/utils/optimisation-tools";
 
 const Header = () => {
-  const desctopNavElRef = useRef(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+  const navElRef = useRef(null);
+  const headerElRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const prevScrollValue = window.scrollY;
-      const currentScrollValue = window.scrollY;
-
-      if (currentScrollValue > prevScrollValue) {
-        console.log("scrolling down");
-      } else if (currentScrollValue < prevScrollValue) {
-        console.log("scrolling up");
-      }
-
-      if (currentScrollValue === 0) {
-        desctopNavElRef.current?.classList.remove("bg-white");
-      } else {
-        desctopNavElRef.current?.classList.add("bg-white");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    if (navElRef?.current && headerElRef?.current) {
+      const observer = new IntersectionObserver((entries) => {
+        entries[0].isIntersecting
+          ? setIsIntersecting(true)
+          : setIsIntersecting(false);
+      });
+      observer.observe(headerElRef.current);
+      return () => observer.disconnect();
+    }
   }, []);
 
   return (
-    <header className={styles.header}>
-      <div className={styles.desctopNavContainer} ref={desctopNavElRef}>
+    <header className={styles.header} ref={headerElRef}>
+      <div
+        className={`${styles.desctopNavContainer} ${
+          !isIntersecting && styles.bgWhite
+        }`}
+        ref={navElRef}
+      >
         <nav className={styles.nav}>
           <Link href="/">
-            <img src="./logo.svg" alt="dogo logo" className={styles.img} />
+            <img src="/logo.svg" alt="dogo logo" className={styles.img} />{" "}
           </Link>
           <ul className={styles.ulHeaderFirst}>
-            <li className={styles.li}>
-              {" "}
-              <Link href="/" className={styles.navLink}>
-                For dogs
-              </Link>
-            </li>
-            <li className={styles.li}>
-              {" "}
-              <Link href="/pages/blog" className={styles.navLink}>
-                Dog Blog
-              </Link>
-            </li>
-            <li className={styles.li}>
-              {" "}
-              <Link href="/" className={styles.navLink}>
-                Find your dog
-              </Link>
-            </li>
-            <li className={styles.li}>
-              {" "}
-              <Link href="/pages/about" className={styles.navLink}>
-                About Us
-              </Link>
-            </li>
+            {navRoots.map((root) => {
+              return (
+                <li key={root.title} className={styles.li}>
+                  {" "}
+                  <Link
+                    href={root.href}
+                    className={`${pathname === root.href ? "activeLink" : ""} ${
+                      styles.navLink
+                    }`}
+                  >
+                    {root.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <ul className={styles.ulHeaderSecond}>

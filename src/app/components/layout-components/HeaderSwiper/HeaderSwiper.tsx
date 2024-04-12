@@ -1,9 +1,8 @@
-"use client";
-
+/* "use client";
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { register } from "swiper/element/bundle";
-//@ts-ignore
+
 register();
 
 import styles from "./HeaderSwiper.module.css";
@@ -35,16 +34,17 @@ export const HeaderSwiper = () => {
         disableOnInteraction: false,
       },
     };
-    //@ts-ignore
-    Object.assign(swiperElRef.current, params);
-    //@ts-ignore
-    swiperElRef.current.initialize();
+
+    if (swiperElRef?.current) {
+      Object.assign(swiperElRef.current, params);
+      swiperElRef.current.initialize();
+    }
   }, []);
 
   return (
-    //@ts-ignore
     <swiper-container init="false" ref={swiperElRef}>
       <swiper-slide>
+        <h1>text 1</h1>
         <Image
           src="/dog-rose-back.jpg"
           fill={true}
@@ -65,6 +65,7 @@ export const HeaderSwiper = () => {
         </div>
       </swiper-slide>
       <swiper-slide>
+        <h1>text 2</h1>
         <Image
           fill={true}
           src="/dog-peach-back.jpg"
@@ -91,6 +92,7 @@ export const HeaderSwiper = () => {
         </div>
       </swiper-slide>
       <swiper-slide>
+        <h1>text 3</h1>
         <Image
           fill={true}
           src="/dog-blue-back.jpg"
@@ -115,3 +117,5 @@ export const HeaderSwiper = () => {
     </swiper-container>
   );
 };
+
+*/

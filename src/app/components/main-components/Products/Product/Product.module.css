@@ -1,0 +1,9 @@
+.product:hover {
+  opacity: 60%;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.product img {
+  max-width: 100%;
+}

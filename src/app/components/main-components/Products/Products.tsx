@@ -1,4 +1,7 @@
 import styles from "./Products.module.css";
+import { Product } from "./Product";
+
+import { data as productsData } from "./data";
 
 export default function Products() {
   return (
@@ -6,38 +9,17 @@ export default function Products() {
       <div className={styles.container}>
         <h2>Here is everything your 4-paw friend need...</h2>
         <div className={styles.productsContainer}>
-          <div className={styles.product}>
-            <img src="/products/lovely-lamb-meaty-treats-pdp-2.webp" alt="" />
-            <h4>Lamb probiotic meaty treats</h4>
-            <p>
-              Limited edition grain-free Love-ly lamb Meaty Treats for your
-              true...
-            </p>
-          </div>
-          <div className={styles.product}>
-            <img src="/products/lovely-lamb-meaty-treats-pdp-2.webp" alt="" />
-            <h4>Lamb probiotic meaty treats</h4>
-            <p>
-              Limited edition grain-free Love-ly lamb Meaty Treats for your
-              true...
-            </p>
-          </div>
-          <div className={styles.product}>
-            <img src="/products/lovely-lamb-meaty-treats-pdp-2.webp" alt="" />
-            <h4>Lamb probiotic meaty treats</h4>
-            <p>
-              Limited edition grain-free Love-ly lamb Meaty Treats for your
-              true...
-            </p>
-          </div>
-          <div className={styles.product}>
-            <img src="/products/lovely-lamb-meaty-treats-pdp-2.webp" alt="" />
-            <h4>Lamb probiotic meaty treats</h4>
-            <p>
-              Limited edition grain-free Love-ly lamb Meaty Treats for your
-              true...
-            </p>
-          </div>
+          {productsData.map((product) => {
+            return (
+              <Product
+                title={product.title}
+                subtitle={product.subtitle}
+                src={product.src}
+                alt={product.alt}
+                key={product.key}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

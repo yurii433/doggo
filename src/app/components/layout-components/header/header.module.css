@@ -51,6 +51,10 @@
   }
 }
 
+.bgWhite {
+  background-color: white;
+}
+
 .ulHeaderSecond {
   display: flex;
   margin-top: 25px;
