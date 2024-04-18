@@ -1,18 +1,21 @@
 "use client";
-import styles from "./page.module.css";
-import { arizonia } from "@/app/utils/fonts";
-import { FaRegClock } from "react-icons/fa";
+
+import { useEffect, useState, Suspense } from "react";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import { FaRegClock } from "react-icons/fa";
+
+import { arizonia } from "@/app/utils/fonts";
+
+import styles from "./page.module.css";
 import { blogData } from "../utils/blogData";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Suspense } from "react";
 
 const BlogContent = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+
   const [filteredBlogData, setFilteredBlogData] = useState([...blogData]);
   const [activeButton, setActiveButton] = useState("all");
   const [isLoading, setIsLoading] = useState(true);
@@ -26,12 +29,9 @@ const BlogContent = () => {
     setIsLoading(false);
   }, []);
 
-  const handleFiltering = (category: string | null) => {
+  const handleFiltering = (category: string) => {
     const params = new URLSearchParams(searchParams);
-    if (category === null) {
-      // Initial render with query parameter
-      category = params.get("query");
-    }
+
     if (category) {
       params.set("query", category);
       setFilteredBlogData(
@@ -52,6 +52,7 @@ const BlogContent = () => {
     borderBottom: "2px solid black",
     fontWeight: "800",
   };
+
   return (
     <div className={styles.container}>
       <div className={styles.blogTop}>

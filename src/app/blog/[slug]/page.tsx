@@ -1,9 +1,11 @@
-import { useState } from "react";
 import styles from "./page.module.css";
+
 import Image from "next/image";
+import Link from "next/link";
+
 import { arizonia } from "@/app/utils/fonts";
 import { blogData } from "@/app/utils/blogData";
-import Link from "next/link";
+
 const posts = [...blogData];
 
 export default function Post({ params }: { params: { slug: string } }) {
@@ -30,7 +32,17 @@ export default function Post({ params }: { params: { slug: string } }) {
             Read time: <b> {thisPost.postInfo.time} mins</b>
           </p>
         </div>
-        <img src={thisPost.postImage.src} alt={thisPost.postImage.alt} />
+        <Image
+          src={thisPost.postImage.src}
+          alt={thisPost.postImage.alt}
+          sizes="100vw"
+          style={{
+            width: "100%",
+            height: "auto",
+          }}
+          width={500}
+          height={300}
+        />
         <p>{thisPost.postText}</p>
       </div>
     </div>
